@@ -3,10 +3,10 @@
     "name": "RN-1",
     "slug": "RN-1",
     "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "orientation": "default",
+    "icon": "app/assets/icon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "app/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -14,13 +14,14 @@
       "fallbackToCacheTimeout": 0
     },
     "assetBundlePatterns": [
-      "**/*"
+      "app/assets/images/*"
     ],
     "ios": {
       "supportsTablet": true
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "app/assets/favicon.png"
     }
   }
 }
+
