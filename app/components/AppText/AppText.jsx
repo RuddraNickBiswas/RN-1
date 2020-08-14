@@ -1,10 +1,11 @@
 import React from "react";
 import { Text } from "react-native";
-import styles from './styles'
+
+import stylesCnf from '../../config/stylesCnf'
 const AppText = ({children , style}) => {
   return( 
       
-  <Text style ={[styles.text , style]}>{children}</Text>
+  <Text style ={[stylesCnf.text , style]}>{children}</Text>
   );
 };
 
