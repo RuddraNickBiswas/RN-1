@@ -8,28 +8,17 @@ import ListItemDeleteAction from "../components/ListItemDeleteAction";
 const InitialMessages = [
     {
         id : 1,
-        title : "t1",
+        title : "HEy",
         description :"D1",
-        image : require('../assets/mosh.jpg')
+        image : require('../assets/favicon.png')
     },
-    {
-        id : 2,
-        title : "t2",
-        description :"D2",
-        image : require('../assets/mosh.jpg')
-    },
-    {
-        id : 3,
-        title : "t2",
-        description :"D2",
-        image : require('../assets/mosh.jpg')
-    },
+    
 ]
 
 const MessagesScreen = () => {
       
     const [messages ,setMessages] = useState(InitialMessages)
-    
+    const [refreshing, setRefreshing] = useState(false)
     const handleDelete = item => {
    
        setMessages(messages.filter(m => m.id !== item.id))
@@ -38,6 +27,7 @@ const MessagesScreen = () => {
   return( 
       <Screen>
       <FlatList
+      // horizontal = {true}
       data={messages}
       keyExtractor = {messages => messages.id.toString()}
       renderItem = {({item}) => 
@@ -46,13 +36,42 @@ const MessagesScreen = () => {
       title={item.title}
       subTitle ={item.description}
       image ={item.image}
-    //   onPress ={() => console.log("messageSend", item)}
+      onPress ={() => console.log("messageSend")}
       renderRightActions={ () =>  <ListItemDeleteAction onPress={() => handleDelete(item)}/> }
       
       />
-     
+    
     }
         ItemSeparatorComponent = {ListItemSeparator}
+        refreshing ={refreshing}
+        onRefresh={() => {
+          setMessages([
+            {
+              id : 2,
+              title : "Test title 2",
+              description :"Test Description 2",
+              image : require('../assets/favicon.png')
+          },
+          {
+              id : 3,
+              title : "Test title 3",
+              description :"Test Description 3",
+              image : require('../assets/favicon.png')
+          },
+          {
+            id : 4,
+            title : "Test title 4",
+            description :"Test Description 4",
+            image : require('../assets/favicon.png')
+          },
+          {
+            id : 5,
+            title : "Test title 5",
+            description :"Test Description 5",
+            image : require('../assets/favicon.png')
+          },
+          ])
+        }}
       />
     </Screen>
      
