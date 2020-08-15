@@ -2,10 +2,10 @@ import React from "react";
 import { Text } from "react-native";
 
 import stylesCnf from '../../config/stylesCnf'
-const AppText = ({children , style}) => {
+const AppText = ({children , style, ...otherProps}) => {
   return( 
       
-  <Text style ={[stylesCnf.text , style]}>{children}</Text>
+  <Text style ={[stylesCnf.text , style]} {...otherProps} >{children}</Text>
   );
 };
 

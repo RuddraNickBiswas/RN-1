@@ -1,30 +1,82 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import * as Yup from "yup";
-import Screen from '../components/Screen'
+import Screen from "../components/Screen";
 import {
-    AppForm,
-    AppFromField,
-    AppFormPicker, 
-    SubmitButton
-}from '../components/forms'
+  AppForm,
+  AppFromField,
+  AppFormPicker,
+  SubmitButton,
+} from "../components/forms";
+import CatagoryPickerItem from "../components/CatagoryPickerItem";
 const validationSchema = Yup.object().shape({
-    title: Yup.string().required().min(1).label("Title"),
-    price: Yup.number().required().min(1).max(10000).label("Price"),
-    description: Yup.string().label("Description"),
-    category: Yup.object().required().nullable().label("Category"),
-  });
+  title: Yup.string().required().min(1).label("Title"),
+  price: Yup.number().required().min(1).max(10000).label("Price"),
+  description: Yup.string().label("Description"),
+  category: Yup.object().required().nullable().label("Category"),
+});
 
-  const categories = [
-    { label: "Furniture", value: 1 },
-    { label: "Clothing", value: 2 },
-    { label: "Camera", value: 3 },
-  ];
+const categories = [
+  {
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
+    label: "Furniture",
+    value: 1,
+  },
+  {
+    backgroundColor: "#fd9644",
+    icon: "car",
+    label: "Cars",
+    value: 2,
+  },
+  {
+    backgroundColor: "#fed330",
+    icon: "camera",
+    label: "Cameras",
+    value: 3,
+  },
+  {
+    backgroundColor: "#26de81",
+    icon: "cards",
+    label: "Games",
+    value: 4,
+  },
+  {
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+    label: "Clothing",
+    value: 5,
+  },
+  {
+    backgroundColor: "#45aaf2",
+    icon: "basketball",
+    label: "Sports",
+    value: 6,
+  },
+  {
+    backgroundColor: "#4b7bec",
+    icon: "headphones",
+    label: "Movies & Music",
+    value: 7,
+  },
+  {
+    backgroundColor: "#a55eea",
+    icon: "book-open-variant",
+    label: "Books",
+    value: 8,
+  },
+  {
+    backgroundColor: "#778ca3",
+    icon: "application",
+    label: "Other",
+    value: 9,
+  },
+];
 
-const ListingEditScreen = () =>{
-    return(
-        <Screen style={styles.container}>
-         <AppForm
+const ListingEditScreen = () => {
+  return (
+    <Screen style={styles.container}>
+      <AppForm
         initialValues={{
           title: "",
           price: "",
@@ -33,15 +85,23 @@ const ListingEditScreen = () =>{
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
-        >
-         <AppFromField maxLength={255} name="title" placeholder="Title" />
-        <AppFromField 
-        keyboardType="numeric"
-        maxLength={8}
-        name="price"
-        placeholder="Price"
+      >
+        <AppFromField maxLength={255} name="title" placeholder="Title" />
+        <AppFromField
+          keyboardType="numeric"
+          maxLength={8}
+          name="price"
+          placeholder="Price"
+          width={120}
         />
-        <AppFormPicker items={categories} name="category" placeholder="Category" />
+        <AppFormPicker
+          items={categories}
+          name="category"
+          placeholder="Category"
+          width="50%"
+          numberOfColumns={3}
+          PickerItemComponent ={CatagoryPickerItem}
+        />
         <AppFromField
           maxLength={255}
           multiline
@@ -50,16 +110,15 @@ const ListingEditScreen = () =>{
           placeholder="Description"
         />
         <SubmitButton title="Post" />
-        </AppForm>
-        </Screen>
-
-    )
-}
+      </AppForm>
+    </Screen>
+  );
+};
 
 const styles = StyleSheet.create({
-    container: {
-      padding: 10,
-    },
-  });
+  container: {
+    padding: 10,
+  },
+});
 
-  export default ListingEditScreen
+export default ListingEditScreen;
