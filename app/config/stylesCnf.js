@@ -4,6 +4,7 @@ import colors from './color'
 export default {
     colors,
     text: {
+     
         ...Platform.select({
             ios: {
                 fontSize :18,
