@@ -1,27 +1,23 @@
 {
   "expo": {
-    "name": "RN-1",
-    "slug": "RN-1",
+    "name": "DoneWithIt",
+    "slug": "DoneWithIt",
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
-    "orientation": "default",
-    "icon": "app/assets/icon.png",
+    "orientation": "portrait",
+    "icon": "./app/assets/icon.png",
     "splash": {
-      "image": "app/assets/splash.png",
+      "image": "./app/assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "app/assets/images/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
-    "web": {
-      "favicon": "app/assets/favicon.png"
-    }
+    "description": "A marketplace for selling the stuff you don't need anymore."
   }
 }
-
