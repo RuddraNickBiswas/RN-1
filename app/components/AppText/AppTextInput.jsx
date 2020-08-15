@@ -2,10 +2,10 @@ import React from "react";
 import { View, TextInput , StyleSheet ,Platform} from "react-native";
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 import stylesCnf from '../../config/stylesCnf'
-const AppTextInput = ({icon, ...otherProps}) => {
+const AppTextInput = ({icon, width ='100%', ...otherProps}) => {
   return( 
       
-      <View style ={styles.container}>
+      <View style ={[styles.container,{width}]}>
         { icon && <MaterialCommunityIcons name={icon} size ={20}  color={stylesCnf.colors.medium} style ={styles.icon} />}
           <TextInput 
           placeholderTextColor={stylesCnf.colors.medium}
@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
         backgroundColor: stylesCnf.colors.light,
         borderRadius:25,
         flexDirection:'row',
-        width: "100%",
         padding: 15,
         marginVertical :10,
     },
